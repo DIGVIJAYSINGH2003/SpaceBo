@@ -3,13 +3,15 @@ import { Box, Container, Card, Typography, CardContent , InputAdornment, IconBut
 import TextField from "@mui/material/TextField";
 import { Search } from "@mui/icons-material";
 import { useState , UseEffect } from "react";
-import { Navigate } from "react-router-dom";
+
 import { useNavigate } from "react-router-dom";
 const Home = () => {
 const [data , setData] = useState("");
 const navigate = useNavigate();
 const handleSubmit =(e)=>{
-  e.preventDefault();
+  e.preventDefault(); // this is for preventing default behavior of form
+
+  // if there is data means i have put something in search bar then navigate else setdata = NULL 
 if (data)
 {
  navigate(`/search/${data}`);
