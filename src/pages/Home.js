@@ -1,7 +1,23 @@
 import spacee from "../assets/spacee.jpeg";
-import { Box, Container, Card, Typography, CardContent } from "@mui/material";
+import { Box, Container, Card, Typography, CardContent , InputAdornment, IconButton } from "@mui/material";
 import TextField from "@mui/material/TextField";
+import { Search } from "@mui/icons-material";
+import { useState , UseEffect } from "react";
+import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
+const [data , setData] = useState("");
+const navigate = useNavigate();
+const handleSubmit =(e)=>{
+  e.preventDefault();
+if (data)
+{
+ navigate(`/search/${data}`);
+}
+ setData('');
+      
+}
+
   return (
     <Box
       sx={{
@@ -12,12 +28,14 @@ const Home = () => {
         backgroundSize: "cover",
         height: "90vh",
         alignItems: "center",
+        width :"100vw",
         justifyContent: "center",
       }}
     >
       <Card
         variant="outlined"
         component="form"
+        onSubmit={handleSubmit}
         sx={{
           // height : {
           //     xl : "400px",
@@ -53,8 +71,25 @@ const Home = () => {
         >
           <TextField
             id="filled-basic"
-            label="Filled"
+            label="Search"
             variant="filled"
+            InputProps={{
+              sx: {
+                "& input": {
+                  color: "#9376E0",
+                },
+              },
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    edge="end"
+                    
+                  />
+                  <Search sx={{ color: "white" }} />
+                </InputAdornment>
+              ),
+            }}
             sx={{
               width: {
                 xs: "70vw",
@@ -62,15 +97,21 @@ const Home = () => {
                 md: " 50vw",
                 lg: " 55vw",
               },
-              background: "rgba(0,0,0,0.4)",
+              background: "rgba(0,0,0,0.4)", // dark effect
             }}
+            value={data}
+            onChange={(event)=>{setData(event.target.value)}}
           />
-          <Typography  color="initial" sx={{
-            fontSize :"1.1rem",
-            fontWeight:"bold",
-            letterSpacing:"0.001rem"
-          }}>
-             Search Planets, Stars, Galaxies, Rockets, and about space missions
+          <Typography
+            color="initial"
+            sx={{
+              fontSize: "1rem",
+              fontWeight: "bold",
+              letterSpacing: "0.001rem",
+              color: "#E1AEFF",
+            }}
+          >
+          Search Planets, Stars, Galaxies, Rockets, and about space missions
           </Typography>
         </CardContent>
       </Card>

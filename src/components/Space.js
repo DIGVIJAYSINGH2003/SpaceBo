@@ -7,7 +7,7 @@ const Space = () => {
       sx={{
         backgroundColor: "black",
         opacity: "0.99",
-
+        width :"100vw",
         height: "15vh",
         display: "flex",
         justifyContent: "center",
