@@ -1,34 +1,22 @@
-const url = `https://images-api.nasa.gov/search/?q=moon`
+import axios from "axios";
+import React from "react";
+const base = "https://images-api.nasa.gov/";
+export const ApiFunc = async (url) => {
+  try {
+    const response = await axios.get(
+      `${base}${url}`, // Replace with the desired NASA API endpoint
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: process.env.NASA_API_KEY, // Replace with your NASA API key
+        },
+      }
+    );
 
-// const ApiFunc = async (url)=>{
-//     try{
-// const response = await fetch(url, {
-//   method: "GET",
-//   header: {
-//     "x-api-key" : process.env.NASA_API_KEY,
-//   },
-// });
-// const result = await response.json()
-// console.log(result)
-//     }
-//     catch{
-//         console.error("error aagya bhaijaan")
-//     }
+    return response.data;
+  } catch (err){
+    console.log(err);
+  }
+};
 
-// }
-// ApiFunc()
- const fetchData = async () => {
-   const apiKey = "eag9bSruAmsbeaojcNuHAMkgQvWAYxj6R27Kemm6";
-   const headers = {
-     "x-api-key": apiKey,
-   };
 
-   try {
-     const response = await fetch(url, { headers });
-     const res = await response.json();
-     console.log(res);
-   } catch (error) {
-     console.log("eroro");
-   }
- };
- fetchData();
