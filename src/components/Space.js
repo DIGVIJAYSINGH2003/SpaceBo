@@ -6,7 +6,7 @@ const Space = () => {
       component="div"
       sx={{
         backgroundColor: "black",
-        opacity: "0.99",
+        opacity: "0.98",
         mt :"0px",
         width :"100vw",
         height: "14vh",
