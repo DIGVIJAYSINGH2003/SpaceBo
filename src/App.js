@@ -6,6 +6,7 @@ import {Box} from "@mui/material"
 import spacee from "./assets/spacee.jpeg"
 import Art from "./pages/Art";
 import Error from "./pages/Error";
+import "./index.css"
 function App() {
   
   return (
