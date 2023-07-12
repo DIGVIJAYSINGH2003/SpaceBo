@@ -6,10 +6,10 @@ const Space = () => {
       component="div"
       sx={{
         backgroundColor: "black",
-        opacity: "0.99",
+        opacity: "0.98",
         mt :"0px",
         width :"100vw",
-        height: "14vh",
+        height: "15vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -18,7 +18,7 @@ const Space = () => {
       <Typography
         sx={{
           fontSize: {
-            xs: "2.8rem",
+            xs: "2.81rem",
             md: "4rem",
             xl: " 6.3rem",
           },
